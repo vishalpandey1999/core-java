@@ -1,24 +1,55 @@
-package Chat_gpt_OOPS_Question;
+package CodeWithHarryOOPS;
 
 public class Animal {
-    private String name;
+    private String animalName;
+    private int numberOfLag;
+    private String colorOfAnimal;
+    private String behaviorOfAnimal;
 
-    public Animal(String name){
-        this.name = name;
-        System.out.println("Animal constructor with name: "+this.name);
+    public String getAnimalName() {
+        return animalName;
+    }
+
+    public void setAnimalName(String animalName) {
+        this.animalName = animalName;
+    }
+
+    public int getNumberOfLag() {
+        return numberOfLag;
+    }
+
+    public void setNumberOfLag(int numberOfLag) {
+        this.numberOfLag = numberOfLag;
+    }
+
+    public String getColorOfAnimal() {
+        return colorOfAnimal;
+    }
+
+    public void setColorOfAnimal(String colorOfAnimal) {
+        this.colorOfAnimal = colorOfAnimal;
+    }
+
+    public String getBehaviorOfAnimal() {
+        return behaviorOfAnimal;
+    }
+
+    public void setBehaviorOfAnimal(String behaviorOfAnimal) {
+        this.behaviorOfAnimal = behaviorOfAnimal;
+    }
+
+    public Animal() {
+    }
+
+    public Animal(String animalName, int numberOfLag, String colorOfAnimal, String behaviorOfAnimal) {
+        this.animalName = animalName;
+        this.colorOfAnimal = colorOfAnimal;
+        this.numberOfLag = numberOfLag;
+        this.behaviorOfAnimal = behaviorOfAnimal;
+    }
+
+    public void soundOfAnimal(){
+        System.out.println("Animal Sound");
     }
 }
 
-class Dog extends Animal{
-    private int age;
-    public Dog(String name, int age){
-        super(name);
-        this.age = age;
-        System.out.println("Dog constructor with age: "+this.age);
-    }
-}
-class ConstructorChainingDemo{
-    public static void main(String[] args) {
-        Dog myDog = new Dog("Titu", 10);
-    }
-}
