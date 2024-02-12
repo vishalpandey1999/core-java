@@ -1,27 +1,21 @@
-package CodeWithHarryOOPS;
+package Geometric_Shapes;
+public class Square extends Shapes{
+    public Square(double side){
+        super(side);
 
-public class Square {
-    private double side;
-
-    public void setSide(double side) {
-        this.side = side;
     }
 
-    public double getSide() {
-        return side;
+
+    public double AreaOfSquare(double side){
+
+        return this.side
+                * this.side;
     }
 
-    public double areaOfSquare(double side){
-        return side * side;
-    }
 
-    public double perimeterOfSquare(double side){
-        return (4 * side);
-    }
 
-    public void aboutSquare(){
-        System.out.println("Side of Square: "+getSide());
-        System.out.println("Area of square: "+areaOfSquare(this.side));
-        System.out.println("Perimeter of square: "+perimeterOfSquare(this.side));
+    public void color(){
+
+        System.out.println("Color the square as your wish");
     }
 }

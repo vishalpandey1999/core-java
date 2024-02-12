@@ -1,66 +1,51 @@
-package Chat_gpt_OOPS_Question;
+package Geometric_Shapes;
 
 public class Shapes {
-    private String color;
-    public Shapes(String color){
-        this.color = color;
-    }
+         double side;
+         double height;
+         double width;
+         double pi;
+         double length;
 
-    public double getArea(){
-        return 0.0;
-    }
+        public double getLength() {
+                return length;
+        }
 
-    public String getColor(){
-        return color;
-    }
-}
+        public Shapes(){};
 
-class Circle1 extends Shapes{
-    private double radius;
+        public Shapes(double height, double side, double width, double length){
+                this.side = side;
+                this.height = height;
+                this.width = width;
+                pi = Math.PI;
+        }
+        public Shapes(double height, double width, double length){
+                this.length = length;
+                this.height = height;
+                this.width = width;
+        }
+        public Shapes(double height, double width){
+                this.height = height;
+                this.width = width;
+                pi = Math.PI;
+        }
 
-    public Circle1(String color, double radius){
-        super(color);
-        this.radius = radius;
-    }
+        public Shapes(double side){
+                System.out.println("Inherit this constructor by the square class");
+                this.side = side;
+        }
 
-    public double getRadius(){
-        return radius;
-    }
+        public double getSide() {
+                return side;
+        }
 
-    public double getArea(){
-        return Math.PI * radius * radius;
-    }
-}
-class Rectangle1 extends Shapes{
-    private double length;
-    private double width;
+        public double getHeight() {
+                return height;
+        }
 
-    public Rectangle1(String color, double length, double width){
-        super(color);
-        this.length = length;
-        this.width = width;
-    }
+        public double getWidth() {
+                return width;
+        }
 
-    public double getLength() {
-        return length;
-    }
 
-    public double getWidth() {
-        return width;
-    }
-
-    @Override
-    public double getArea() {
-        return length * width;
-    }
-}
-class Check1{
-    public static void main(String[] args) {
-        Shapes circle = new Circle1("red", 12);
-        circle.getArea();
-
-        System.out.println("Area of Rectangle: ");
-        Shapes rectangle = new Rectangle1("blue",14.22,16.0);
-        rectangle.getArea();
-    }
 }

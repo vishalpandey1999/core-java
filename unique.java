@@ -1,35 +1,32 @@
 package LoveBabbar;
 
 import java.util.Scanner;
-class sec{
-    int maximum(int[] arr){
+
+class Uni{
+    int uniqueElement(int[] arr){
         int n = arr.length;
-        int mx = Integer.MIN_VALUE;
         for(int i = 0; i < n; i++){
-            if(arr[i] > mx){
-                mx = arr[i];
+            for(int j = i + 1; j < n; j++){
+                if(arr[i] == arr[j]){
+                    arr[i] = -1;
+                    arr[j] = -1;
+                }
             }
         }
-        return mx;
-    }
-
-    int SecondMax(int[] arr){
-        int max = maximum(arr);
-        for(int i= 0; i < arr.length; i++){
-            if(arr[i] == max){
-                arr[i] = Integer.MIN_VALUE;
+        int ans = -1;
+        for(int i = 0; i < n; i++){
+            if(arr[i] > 0){
+                ans = arr[i];
             }
         }
-        int secondMx = maximum(arr);
-        return secondMx;
+        return ans;
     }
-
 }
 
-public class Second {
+public class unique {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        sec obj = new sec();
+        Uni obj = new Uni();
 
         System.out.println("Enter size of Array: ");
         int num = sc.nextInt();
@@ -40,7 +37,7 @@ public class Second {
             arr[i] = sc.nextInt();
         }
         System.out.println("print array: ");
-        System.out.println("second maximum: "+ obj.SecondMax(arr));
+        System.out.println("unique: "+ obj.uniqueElement(arr));
 
     }
 }
