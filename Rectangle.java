@@ -1,18 +1,34 @@
-package Geometric_Shapes;
+package OOPSforSetGet;
 
-public class Rectangle extends Shapes{
-    public Rectangle(){}
-    public Rectangle(double length, double width){
+import java.util.Scanner;
 
-        super(length,width);
+public class Rectangle {
+    private float length;
+    private float width;
+
+    public Rectangle(float length, float width){
+        this.length = length;
+        this.width = width;
     }
-    public double perimeterOfRectangle(double length, double width){
 
-        return 2 * (length + width);
-    }
-
-    public double areaOfRectangle(double length, double width){
-
+    public float getArea(){
         return length * width;
+    }
+
+    public float getPerimeter(){
+        return 2 * (length * width);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter length: ");
+        float length = sc.nextFloat();
+
+        System.out.println("Enter width: ");
+        float width = sc.nextFloat();
+
+        Rectangle r1 = new Rectangle(length, width);
+        System.out.println("Area : "+r1.getArea()+" Perimeter is "+ r1.getPerimeter());
     }
 }

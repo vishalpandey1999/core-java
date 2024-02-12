@@ -1,43 +1,49 @@
-package LoveBabbar;
+package Tap_Academy;
 
 import java.util.Arrays;
 import java.util.Scanner;
-class rotate {
-    int[] rotateArray(int [] arr, int k){
+
+class QuestionTap{
+    void rotateOne(int [] arr){
+        int temp = arr[0];
+        for(int i = 1; i < arr.length; i++){
+            arr[i - 1] = arr[i];
+        }
+
+        arr[arr.length - 1] = temp;
+    }
+
+    void rotate(int [] arr, int k){
         int n = arr.length;
         k = k % n;
-        int[] ans = new int[n];
-        int j = 0;
-        for(int i = n - k; i < n; i++){
-            ans[j++] = arr[i];
+        if(k < 0){
+            k = k + n;
         }
-        for(int i = 0; i < n - k; i++){
-            ans[j++] = arr[i];
+        for(int i = 1; i < n; i++){
+            rotateOne(arr);
         }
-        return ans;
+
     }
 
-    void swap(int[] arr, int i, int j){
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-    }
-
-    void reverse(int[] arr,int i, int j){
-        while(i < j){
-            swap(arr, i, j);
-            i++;
-            j--;
+    void reverse(int[] arr, int left, int right){
+        while(left < right) {
+            int temp = arr[left];
+            arr[left] = arr[right];
+            arr[right] = temp;
+            left++;
+            right--;
         }
     }
 
-    void rotationInPlace(int[] arr,int k){
+    void Rotation(int[] arr, int k){
         int n = arr.length;
         k = k % n;
-        reverse(arr, 0, n - k - 1);
-        reverse(arr, n - k, n - 1);
-        reverse(arr, 0, n - 1);
-
+        if(k < 0){
+            k = k + n;
+        }
+        reverse(arr, 0, k - 1);
+        reverse(arr, k, n - 1);
+        reverse(arr,0, n - 1);
 
     }
 
@@ -46,24 +52,22 @@ class rotate {
 public class rotation {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        rotate obj = new rotate();
+        QuestionTap obj = new QuestionTap();
 
-        System.out.println("Enter size of Array: ");
+        System.out.println("enter size of Array: ");
         int num = sc.nextInt();
-        int[] arr = new int[num];
+        int [] arr = new int[num];
 
-        System.out.println("enter element of Array :");
+        System.out.println("enter element of Array: ");
         for(int i = 0; i < arr.length; i++){
             arr[i] = sc.nextInt();
         }
 
-        System.out.println("enter target: ");
+        System.out.println("enter your target: ");
         int target = sc.nextInt();
 
-        System.out.println("print array: ");
-//        int[] ans = obj.rotateArray(arr,target);
-        obj.rotationInPlace(arr,target);
-        System.out.println("smallest and largest array: "+ (Arrays.toString(arr)));
-
+        System.out.println("Print Array: "+ Arrays.toString(arr));
+        obj.Rotation(arr, target);
+        System.out.println("Rotate array by one: "+ Arrays.toString(arr));
     }
 }

@@ -1,50 +1,26 @@
-package Core_Java;
+package Student_Management_System;
 
-import java.util.Scanner;
-
-class Employee {
-  private String name;
-  private String job_title;
-  private double salary;
-  public Employee(String name, String job_title, double salary){
-      this.name = name;
-      this.job_title = job_title;
-      this.salary = salary;
-  }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getJob_title(){
-      return job_title;
-    }
-
-    public double getSalary() {
-        return salary;
-    }
-
-    public double raiseSalary(double percentage){
-      return salary = salary + salary * percentage / 100;
-    }
-
-    public void employee_Details(){
-        System.out.println("Employee Name: "+name);
-        System.out.println("Employee Job Title: "+job_title);
-        System.out.println("Salary: "+salary);
-    }
-}
-public class test{
+public class test {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        Employee e1 = new Employee("Vishal Pandey","Software developer", 50000);
-        Employee e2 = new Employee("Vikas Pandey","Medical Representative", 70000);
-        Employee e3 = new Employee("Shivam Tiwari","Data Science Engineer", 50000);
-        Employee e4 = new Employee("Raj Pandey","Senior Software developer", 250000);
-        e1.employee_Details();
-        System.out.print("Enter raising salary percentage:");
-        double pre = sc.nextDouble();
-        double inc = e1.raiseSalary(pre);
-        System.out.println("increase salary: "+inc);
+        StudentManagementSystem sms = new StudentManagementSystem();
+
+        Student student1 = new Student(1, "Alice", "alice@example.com");
+        Student student2 = new Student(2, "Bob", "bob@example.com");
+
+        sms.addStudent(student1);
+        sms.addStudent(student2);
+
+        student1.enrollInCourse("Math", 90.5f);
+        student1.enrollInCourse("History", 88.0f);
+        student2.enrollInCourse("Science", 95.5f);
+
+        System.out.println("\nTranscript for Alice:");
+        student1.viewTranscript();
+
+        System.out.println("\nTranscript for Bob:");
+        student2.viewTranscript();
+
+        student1.updateContactInfo("alice@updated.com");
+        System.out.println("Updated Contact Info for Alice: " + student1.getContactInfo());
     }
 }

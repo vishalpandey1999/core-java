@@ -1,26 +1,26 @@
-package PWSkills;
+package W3School;
 
 import java.util.Scanner;
-class repeating{
-    int RepeatingValue(int[] arr, int x){
-        int count = 0;
+
+class Find{
+
+    boolean findArray(int[] arr, int x){
         for(int i = 0; i < arr.length; i++){
             if(arr[i] == x){
-                count++;
-
+                return true;
             }
         }
-        return count;
+        return false;
     }
 }
 
-public class Occurrence {
+public class findValue {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        repeating obj = new repeating();
+        Find obj = new Find();
 
 //        size
-        System.out.println("Enter size : ");
+        System.out.println("enter size of element: ");
         int num = sc.nextInt();
         int[] arr = new int[num];
 
@@ -29,9 +29,16 @@ public class Occurrence {
         for(int i = 0; i < arr.length; i++){
             arr[i] = sc.nextInt();
         }
+
+//        declare value which is user found
         System.out.println("enter value: ");
         int x = sc.nextInt();
 
-        System.out.println("Repeating value: "+obj.RepeatingValue(arr, x));
+        if(obj.findArray(arr, x)){
+            System.out.println("Yes this number is available in the array: "+ x);
+        } else{
+            System.out.println("No this number is not available in the array: "+ x);
+        }
+
     }
 }
